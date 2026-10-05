@@ -34,6 +34,17 @@ class CurrencyApp:
         self.name_base1.pack(pady=(0, 15))
         self.combo_base1.bind("<<ComboboxSelected>>", self.update_names)
 
+        # Валюта 2 
+        self.label_base2 = tk.Label(root, text="Вторая базовая валюта", font=("Arial", 10, "bold"))
+        self.label_base2.pack(pady=(10, 5))
+
+        self.combo_base2 = ttk.Combobox(root, values=list(CURRENCY_NAMES.keys()), state="readonly")
+        self.combo_base2.current(1)  # USD по умолчанию
+        self.combo_base2.pack()
+
+        self.name_base2 = tk.Label(root, text=CURRENCY_NAMES["USD"])
+        self.name_base2.pack(pady=(0, 15))
+        self.combo_base2.bind("<<ComboboxSelected>>", self.update_names)
 
         # Целевая валюта
         self.label_target = tk.Label(root, text="Целевая валюта", font=("Arial", 10, "bold"))
