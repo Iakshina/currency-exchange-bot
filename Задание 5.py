@@ -34,7 +34,7 @@ class CurrencyApp:
         self.name_base1.pack(pady=(0, 15))
         self.combo_base1.bind("<<ComboboxSelected>>", self.update_names)
 
-        # Валюта 2 
+        # Валюта 2
         self.label_base2 = tk.Label(root, text="Вторая базовая валюта", font=("Arial", 10, "bold"))
         self.label_base2.pack(pady=(10, 5))
 
@@ -67,13 +67,11 @@ class CurrencyApp:
         self.result_label.pack(pady=20)
 
     def update_names(self, event=None):
-        """Обновляет подписи под выпадающими списками при выборе"""
         self.name_base1.config(text=CURRENCY_NAMES.get(self.combo_base1.get(), ""))
         self.name_base2.config(text=CURRENCY_NAMES.get(self.combo_base2.get(), ""))
         self.name_target.config(text=CURRENCY_NAMES.get(self.combo_target.get(), ""))
 
     def exchange(self):
-        """Запрашивает данные и выводит оба курса"""
         base1 = self.combo_base1.get()
         base2 = self.combo_base2.get()
         target = self.combo_target.get()
